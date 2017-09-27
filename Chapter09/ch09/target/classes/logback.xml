@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- Log message format -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+ 
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+     <file>/logs/ch09.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+ 
+  <logger name="org.packt.spring.boot" level="info">
+    <appender-ref ref="FILE" />
+  </logger>
+   <logger name="org.packt.spring.boot.controller" level="trace">
+    <appender-ref ref="FILE" />
+  </logger>
+   <logger name="org.packt.spring.boot.service" level="warn">
+    <appender-ref ref="FILE" />
+  </logger>
+     <logger name="org.packt.spring.boot.dao" level="warn">
+    <appender-ref ref="FILE" />
+  </logger>
+  
+   
+  <root level="info">
+    <appender-ref ref="FILE" />
+  </root>
+</configuration>

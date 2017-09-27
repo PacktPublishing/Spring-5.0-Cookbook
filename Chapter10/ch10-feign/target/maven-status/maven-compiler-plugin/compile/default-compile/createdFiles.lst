@@ -1,0 +1,6 @@
+org\packt\microservice\feign\controller\DeptFeignController.class
+org\packt\microservice\feign\model\data\Employee.class
+org\packt\microservice\feign\config\WebfluxConfig.class
+org\packt\microservice\feign\service\DeptListClient.class
+org\packt\microservice\feign\ConsumeFeignBootApplication.class
+org\packt\microservice\feign\model\data\Department.class

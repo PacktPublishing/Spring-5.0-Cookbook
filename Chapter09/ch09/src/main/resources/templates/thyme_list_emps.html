@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+    <title>Ch08 Thymeleaf Reactive View</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ </head>
+ <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="e : ${employees}">
+          <td th:text="${e.empId}"></td>
+          <td th:text="${e.firstName}"></td>
+          <td th:text="${e.lastName}"></td>
+          <td th:text="${e.age}"></td>
+        </tr>
+      </tbody>
+    </table>
+ </body>
+</html>

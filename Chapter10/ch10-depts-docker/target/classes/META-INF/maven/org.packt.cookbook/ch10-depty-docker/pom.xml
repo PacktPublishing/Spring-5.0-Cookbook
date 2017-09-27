@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.packt.cookbook</groupId>
+  <artifactId>ch10-depty-docker</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.0.M2</version>
+    <relativePath/>
+</parent>
+     <properties>
+     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <startClass>org.packt.spring.boot.HRDeptBootApplication</startClass>
+        <docker.image.prefix>Packt</docker.image.prefix>
+    </properties>
+    
+ 
+    <dependencies>
+        <!-- Add typical dependencies for a web application -->
+        <!-- Adds Tomcat and Spring MVC, along others -->
+        
+   <dependency>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-starter-webflux</artifactId>
+  
+ </dependency>
+
+
+ <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+   
+    </dependency>
+   
+  <!-- Hikari Connection Pooling -->
+		
+	
+
+		
+		
+			<dependency>
+<groupId>io.reactivex.rxjava2</groupId>
+<artifactId>rxjava</artifactId>
+<version>2.1.0</version>
+</dependency>
+
+
+ <dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+		</dependency>
+        
+        
+        <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+       
+      
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		 <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+     </dependency>
+     
+     
+
+</dependencies>
+    
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <url>http://repo.spring.io/snapshot</url>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>  
+                <enabled>true</enabled>  
+            </snapshots>  
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <url>http://repo.spring.io/snapshot</url>
+            <snapshots>  
+                <enabled>false</enabled>  
+            </snapshots>  
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>  
+                <enabled>true</enabled>  
+            </snapshots>  
+        </pluginRepository>
+    </pluginRepositories>
+    
+    <build>
+		<plugins>  
+            <plugin>  
+                <groupId>org.springframework.boot</groupId>  
+                <artifactId>spring-boot-maven-plugin</artifactId>  
+            </plugin> 
+            <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <configuration>
+              
+                <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                          <dockerHost>https://192.168.99.100:2376</dockerHost>
+                          <dockerCertPath>C:/Users/sjctrags/.docker/machine/certs</dockerCertPath>
+                <dockerDirectory>src/main/docker</dockerDirectory>
+                 <resources>
+                    <resource>
+                        <targetPath>/</targetPath>
+                        <directory>${project.build.directory}</directory>
+                        <include>${project.build.finalName}.jar</include>
+                    </resource>
+                </resources>
+            </configuration>
+        </plugin> 
+        </plugins>  
+		 <finalName>ch10-depty-docker</finalName>
+	</build>
+</project>

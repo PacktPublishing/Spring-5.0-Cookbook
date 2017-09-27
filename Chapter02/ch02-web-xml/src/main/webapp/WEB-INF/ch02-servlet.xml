@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+				
+	<import resource="beans-context.xml"/>
+     
+	<context:component-scan base-package="org.packt.starter.ioc"/>
+	<mvc:annotation-driven />
+	
+	<bean id="viewResolverA" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	     <property name="prefix" value="/WEB-INF/jsp/"/>
+	     <property name="suffix" value=".jsp"/>
+	     <property name="order" value="1"/>
+	</bean>
+	
+	<bean id="viewResolverB" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+	   <property name="basename" value="config.views"/>
+	   <property name="order" value="0"/>
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	  	 <property name="basename" value="classpath:config/messages_en_US"/>
+	  	 <property name="defaultEncoding" value="UTF-8" />
+	  	 <property name="useCodeAsDefaultMessage" value="true"/>
+	  	 <property name="cacheSeconds" value="1"/>
+	</bean>
+	
+</beans>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 12</title>
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link href="./main.css" rel="stylesheet">
+    <script src="./jquery-1.10.2.min.js"></script>
+     <script src="./reactivesocketapp.js"></script>
+</head>
+<body>
+<noscript>
+   <h2 style="color: #ff0000">
+    NO BROWSER SUPPORT FOR WEBSOCKET!!!!
+   </h2>
+</noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <H2>GreetMe Portal</H2>
+        <div class="col-md-12">
+            <form class="form-inline">
+                <div id="greetForm" class="form-group">
+                    <label for="name">What is your name?</label>
+                    <input type="text" id="name" class="form-control" placeholder="Your name here...">
+                    <label for="greet">Say your greetings?</label>
+                    <input type="text" id="greet" class="form-control" placeholder="Your greeting here...">
+                    <button id="send" class="btn btn-success" type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="greetings" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Conversation with Portal</th>
+                </tr>
+                </thead>
+                <tbody id="conversations">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

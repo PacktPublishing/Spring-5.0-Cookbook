@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 12</title>
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link href="./main.css" rel="stylesheet">
+    <script src="./jquery-1.10.2.min.js"></script>
+    <script src="./socketapp.js"></script>
+</head>
+<body>
+<noscript>
+   <h2 style="color: #ff0000">
+    NO BROWSER SUPPORT FOR WEBSOCKET!!!!
+   </h2>
+</noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="connect">Complaint Hotline connection:</label>
+                    <button id="connect" class="btn btn-success" type="submit">Connect</button>
+                    <button id="disconnect" class="btn btn-danger" type="submit" disabled="disabled">Disconnect
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div id="complaintForm" class="form-group">
+                    <label for="name">What is your name?</label>
+                    <input type="text" id="name" class="form-control" placeholder="Your name here...">
+                    <label for="complaint">What is your complaint?</label>
+                    <input type="text" id="complaint" class="form-control" placeholder="Your complaint here...">
+                </div>
+                <button id="send" class="btn btn-success" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="helpdesk" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Customer Service</th>
+                </tr>
+                </thead>
+                <tbody id="feedbacks">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

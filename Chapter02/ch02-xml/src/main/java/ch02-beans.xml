@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+     
+	<bean id="empRec1" class="org.packt.starter.ioc.model.Employee" scope="singleton"/>
+	
+	<bean id="empRec2" class="org.packt.starter.ioc.model.Employee" scope="prototype">
+	   <property name="firstName"><value>Juan</value></property>
+	   <property name="lastName"><value>Luna</value></property>
+	   <property name="age"><value>70</value></property>
+	   <property name="birthdate"><value>October 28, 1945</value></property>
+	   <property name="position"><value>historian</value></property>
+	   <property name="salary"><value>150000</value></property>
+	   <property name="dept"><ref bean="dept2"/></property>
+	</bean>
+	<bean id="empRec3" class="org.packt.starter.ioc.model.Employee">
+	   <property name="firstName" value="Jose"/>
+	   <property name="lastName" value="Rizal"/>
+	   <property name="age" value="101"/>
+	   <property name="birthdate" value="June 19, 1950"/>
+	   <property name="position" value="scriber"/>
+	   <property name="salary" value="90000"/>
+	   <property name="dept" ref="dept3"/>
+	</bean>
+	
+	<bean id="empRec4" class="org.packt.starter.ioc.model.Employee">
+	   <property name="firstName" value="Gabriela"/>
+	   <property name="lastName" value="Silang"/>
+	   <property name="age" value="67"/>
+	   <property name="birthdate" value="June 19, 1950"/>
+	   <property name="position" value="writer"/>
+	   <property name="salary" value="897000"/>
+	   <property name="dept">
+	       <bean class="org.packt.starter.ioc.model.Department" scope="prototype">
+	            <property name="deptNo" value="48574"/>
+	            <property name="deptName" value="Humanities Department"/>
+	       </bean>
+	   
+	   </property>
+	</bean>
+	
+	<bean id="empRec5" class="org.packt.starter.ioc.model.Employee">
+	      <constructor-arg><value>Poly</value></constructor-arg>
+	      <constructor-arg><value>Mabini</value></constructor-arg>
+	      <constructor-arg><value>August 10, 1948</value></constructor-arg>
+	      <constructor-arg><value>67</value></constructor-arg>
+	      <constructor-arg><value>45000</value></constructor-arg>
+	      <constructor-arg><value>Linguist</value></constructor-arg>
+	      <constructor-arg><ref bean="dept3"></ref></constructor-arg>
+	</bean>
+	
+	
+	<bean id="empRec6" class="org.packt.starter.ioc.model.Employee" lazy-init="true">
+	      <constructor-arg><value>Diego</value></constructor-arg>
+	      <constructor-arg><value>Silang</value></constructor-arg>
+	      <constructor-arg><value>December 16, 1965</value></constructor-arg>
+	      <constructor-arg><value>55</value></constructor-arg>
+	      <constructor-arg><value>87000</value></constructor-arg>
+	      <constructor-arg><value>Guitarist</value></constructor-arg>
+	      <constructor-arg><ref bean="dept4"></ref></constructor-arg>
+	</bean>
+	
+	
+	<bean id="dept1" class="org.packt.starter.ioc.model.Department" />
+	<bean id="dept2" class="org.packt.starter.ioc.model.Department">
+	    <property name="deptNo"><value>13456</value></property>
+	    <property name="deptName"><value>History Department</value></property> 
+	</bean>
+	<bean id="dept3" class="org.packt.starter.ioc.model.Department">
+	    <property name="deptNo" value="56748"/>
+	    <property name="deptName" value="Communication Department" />
+	</bean>
+	<bean id="dept4" class="org.packt.starter.ioc.model.Department" lazy-init="true">
+	    <property name="deptNo" value="11223"/>
+	    <property name="deptName" value="Music" />
+	</bean>
+	
+	
+	<bean id="listEmployees" class="org.packt.starter.ioc.model.ListEmployees">
+	   <property name="listEmps">
+	      <list>
+	           <ref bean="empRec2"/>
+	           <ref bean="empRec3"/>
+	           <ref bean="empRec4"/>
+	      </list>
+	   </property>
+	   <property name="listEmpNames">
+	      <list>
+	           <value>Juan</value>
+	           <value>Jose</value>
+	      </list>
+	   </property>
+	</bean>
+	
+	<bean id="setDepartments" class="org.packt.starter.ioc.model.SetDepartments">
+	   <property name="setDepts">
+	      <set>
+	           <ref bean="dept2"/>
+	           <ref bean="dept3"/>
+	           <ref bean="dept4"/>
+	      </set>
+	   </property>
+	   <property name="deptNames">
+	      <set>
+	           <value>Music</value>
+	           <value>Arts</value>
+	      </set>
+	   </property>
+	</bean>
+	
+	<bean id="mapEmpTasks" class="org.packt.starter.ioc.model.MapEmpTasks">
+	   <property name="mapEmpTask">
+	       <map>
+	           <entry key="expository">
+	                <ref bean="empRec2"/>
+	           </entry>
+	           <entry key="feature" value-ref="empRec3"/>
+	              
+	       </map>
+	   </property>
+	   <property name="mapEmpMgr">
+	       <map>
+	           <entry key="expository">
+	               <value>Joan Arkos</value>
+	           </entry>
+	           <entry key="feature" value="Billy Jean"/>
+	       </map>
+	   </property>
+	</bean>
+	
+	
+	<bean id="auditionInfo" class="org.packt.starter.ioc.model.PropertiesAudition">
+	    <property name="auditionAddress">
+	         <value>
+	              country=Philippines
+	              city=Makati
+	              building=Rufino Tower 2
+	              zipcode=1233
+	              
+	         </value>
+	    </property>
+	    <property name="auditionRequirement">
+	         <props>
+	             <prop key="document">curriculum vitae</prop>
+	             <prop key="picture">2x2 recent picture</prop>
+	             <prop key="time">8:00 AM</prop>
+	         </props>
+	    </property>
+	</bean>
+	
+	
+</beans>

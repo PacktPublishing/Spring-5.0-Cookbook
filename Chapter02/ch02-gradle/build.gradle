@@ -1,0 +1,84 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.0'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'com.bmuschko.tomcat'
+apply plugin: 'com.bmuschko.tomcat-base'
+apply plugin: "war"
+
+war {
+    baseName = 'ch01-gradle'
+    version = ''
+}
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+    compile("org.springframework:spring-context:5.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework:spring-core:5.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework:spring-beans:5.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework:spring-web:5.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework:spring-webmvc:5.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework:spring-context-support:5.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework:spring-tx:5.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework:spring-expression:5.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework:spring-web-reactive:5.0.0.BUILD-SNAPSHOT")
+}
+
+dependencies {
+    compile("io.projectreactor:reactor-core:3.0.3.RELEASE")
+    compile("javax.servlet:javax.servlet-api:3.1.0")
+    compile("javax.servlet.jsp:javax.servlet.jsp-api:2.3.1")
+    compile("javax.servlet:jstl:1.2")
+    compile("taglibs:standard:1.1.2")
+    compile("javax.validation:validation-api:1.1.0.Final")
+}
+
+dependencies {
+    testCompile("junit:junit:4.12") 
+}
+
+repositories {
+    maven {
+        url 'https://repo.spring.io/libs-snapshot'
+    }
+}
+
+
+
+tomcat {
+    httpsPort = 8443
+    enableSSL = true
+   
+   users {
+        user {
+            username = 'packt'
+            password = 'packt'
+            roles = ['manager-gui', 'manager-script']
+        }
+    }
+}
+
+task deploy (dependsOn: war){
+    
+    copy {
+        from "build/libs"
+        into "C:\\MyFiles\\Development\\Servers\\Tomcat9.0\\webapps"
+        include "*.war"
+    }
+}
+

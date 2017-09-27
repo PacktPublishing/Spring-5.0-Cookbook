@@ -1,0 +1,11 @@
+org\packt\microservice\client\HRClientBootApplication.class
+org\packt\microservice\client\model\data\Department.class
+org\packt\microservice\client\model\data\TotalAge.class
+org\packt\microservice\client\model\data\CountEmp.class
+org\packt\microservice\client\model\data\AveAge.class
+org\packt\microservice\client\controller\ClientReactiveController.class
+org\packt\microservice\client\model\data\CountDept.class
+org\packt\microservice\client\controller\ClientBlockingController.class
+org\packt\microservice\client\config\WebFluxConfig.class
+org\packt\microservice\client\controller\ClientAsyncController.class
+org\packt\microservice\client\model\data\Employee.class

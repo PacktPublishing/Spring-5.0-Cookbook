@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<departments>
+   <department>
+       <id>111</id>
+       <deptid>5656</deptid>
+       <name>Human Resources Department</name>
+   </department>
+   <department>
+       <id>1234</id>
+       <deptid>6777</deptid>
+       <name>Sports and Wellness Department]</name>
+   </department>
+   <department>
+       <id>1456</id>
+       <deptid>345</deptid>
+       <name>Kiosk</name>
+   </department>
+   <department>
+       <id>1459</id>
+       <deptid>23232</deptid>
+       <name>Engineering Department</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department><department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department><department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>11222</deptid>
+       <name>Human Eco</name>
+   </department>
+   <department>
+       <id>1</id>
+       <deptid>6666</deptid>
+       <name>UP Diliman</name>
+   </department>
+</departments>
